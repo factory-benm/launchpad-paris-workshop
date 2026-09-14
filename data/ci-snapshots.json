@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-01T09:00:00Z",
+  "snapshots": [
+    {
+      "serviceId": "api-gateway",
+      "state": "passed",
+      "workflow": "Validate gateway",
+      "ref": "sample-a1b2c3d",
+      "summary": "Routing, quota, and request-ID checks passed in this sample snapshot."
+    },
+    {
+      "serviceId": "model-gateway",
+      "state": "failed",
+      "workflow": "Provider contract tests",
+      "ref": "sample-b2c3d4e",
+      "summary": "A provider adapter returned an unrecognized response shape in the sample contract test."
+    },
+    {
+      "serviceId": "inference-api",
+      "state": "passed",
+      "workflow": "Inference checks",
+      "ref": "sample-c3d4e5f",
+      "summary": "Version selection and input validation passed in this sample snapshot."
+    },
+    {
+      "serviceId": "prompt-registry",
+      "state": "passed",
+      "workflow": "Template validation",
+      "ref": "sample-d4e5f6a",
+      "summary": "Template schemas and required variables passed in this sample snapshot."
+    },
+    {
+      "serviceId": "eval-runner",
+      "state": "running",
+      "workflow": "Evaluation smoke suite",
+      "ref": "sample-e5f6a7b",
+      "summary": "The sample run was in progress when this snapshot was recorded. It is not running now."
+    },
+    {
+      "serviceId": "billing-worker",
+      "state": "failed",
+      "workflow": "Ledger invariants",
+      "ref": "sample-f6a7b8c",
+      "summary": "A retry duplicated a usage entry in the sample ledger test."
+    },
+    {
+      "serviceId": "event-worker",
+      "state": "passed",
+      "workflow": "Queue checks",
+      "ref": "sample-a7b8c9d",
+      "summary": "Retry and dead-letter behavior passed in this sample snapshot."
+    },
+    {
+      "serviceId": "docs-site",
+      "state": "never",
+      "workflow": null,
+      "ref": null,
+      "summary": "No workflow is configured in this sample. Absence of a run is not a passing result."
+    }
+  ]
+}

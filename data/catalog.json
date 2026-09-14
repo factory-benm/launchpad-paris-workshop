@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "name": "Launchpad sample catalog",
+  "description": "Fictional services for a local-first engineering workshop. These records do not represent deployed workloads.",
+  "services": [
+    {
+      "id": "api-gateway",
+      "name": "API Gateway",
+      "description": "The front door for product APIs. Routes requests, applies quotas, and keeps request IDs consistent across services.",
+      "owner": "Platform",
+      "type": "api",
+      "tags": ["edge", "routing", "typescript"],
+      "runbook": "api-gateway.md"
+    },
+    {
+      "id": "model-gateway",
+      "name": "Model Gateway",
+      "description": "A single interface for model requests, with provider routing, request budgets, and structured response handling.",
+      "owner": "AI Platform",
+      "type": "api",
+      "tags": ["ai", "routing", "python"],
+      "runbook": "model-gateway.md"
+    },
+    {
+      "id": "inference-api",
+      "name": "Inference API",
+      "description": "Serves prediction requests and tracks model versions so product teams can reproduce each inference result.",
+      "owner": "AI Platform",
+      "type": "api",
+      "tags": ["ai", "inference", "python"],
+      "runbook": "inference-api.md"
+    },
+    {
+      "id": "prompt-registry",
+      "name": "Prompt Registry",
+      "description": "Versioned prompt templates with explicit input contracts. Shared by evaluation jobs and application services.",
+      "owner": "AI Platform",
+      "type": "library",
+      "tags": ["ai", "prompts", "typescript"],
+      "runbook": "prompt-registry.md"
+    },
+    {
+      "id": "eval-runner",
+      "name": "Eval Runner",
+      "description": "Executes repeatable evaluation suites and produces structured result artifacts for model and prompt changes.",
+      "owner": "AI Platform",
+      "type": "worker",
+      "tags": ["ai", "evaluation", "python"],
+      "runbook": "eval-runner.md"
+    },
+    {
+      "id": "billing-worker",
+      "name": "Billing Worker",
+      "description": "Aggregates usage events into billing periods and checks that retries never create duplicate ledger entries.",
+      "owner": "Commerce",
+      "type": "worker",
+      "tags": ["billing", "events", "typescript"],
+      "runbook": null
+    },
+    {
+      "id": "event-worker",
+      "name": "Event Worker",
+      "description": "Processes application events, retries transient failures, and routes exhausted messages to a review queue.",
+      "owner": null,
+      "type": "worker",
+      "tags": ["events", "queues", "typescript"],
+      "runbook": "event-worker.md"
+    },
+    {
+      "id": "docs-site",
+      "name": "Docs Site",
+      "description": "The engineering handbook: architecture notes, onboarding guides, and conventions for contributing to the platform.",
+      "owner": "Developer Experience",
+      "type": "website",
+      "tags": ["docs", "onboarding", "markdown"],
+      "runbook": "docs-site.md"
+    }
+  ]
+}
