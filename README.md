@@ -52,8 +52,17 @@ npm run preview
 ```
 
 `preview` serves the production build on http://127.0.0.1:4173.
-The starter intentionally has no `test`, `check`, or `catalog:report` script yet.
-Those are exercises, not commands to run before they exist.
+
+This is the **readiness checkpoint**. It adds:
+
+```sh
+npm test
+npm run check
+```
+
+`check` runs type checking, unit tests, and a production build. It is not a
+browser test. The starter has no test/check scripts; this checkpoint does.
+Attention and `catalog:report` are still the next exercise.
 
 ## Where the data lives
 
@@ -82,10 +91,10 @@ Docs Site has `state: "never"` but its badge says **Passing**. This is a disclos
 exercise, not a hidden demo trick. The raw source and runbook tell the truth.
 The complete checkpoint fixes it to **Not configured** with a regression test.
 
-Other readiness gaps are deliberately modest: no repository `AGENTS.md`, no
-unit test command, and no single validation command. The starter still must pass
-type checking and a production build. No particular Agent Readiness score is
-claimed or guaranteed.
+The starter's modest readiness gaps include missing repository instructions,
+unit tests, and a single validation command. This checkpoint adds those
+foundations without changing product behavior. No particular Agent Readiness
+score is claimed or guaranteed.
 
 ## Out of scope
 
