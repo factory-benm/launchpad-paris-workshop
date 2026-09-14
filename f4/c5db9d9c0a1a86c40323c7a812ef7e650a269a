@@ -1,0 +1,111 @@
+src/main.tsx
+  s_9d795a0c868803::t_594431b9c8f62d 1-33
+BUILD_PROMPT.md
+  s_4542b8385439fd::t_1a191161b50b8e 1-29,32-43,45-84,91,93-105,108,110-175
+  s_9d795a0c868803::t_834dc2d132ee27 30-31,44,85-90,92,106-107,109
+data/ci-snapshots.json
+  s_9d795a0c868803::t_594431b9c8f62d 5-60
+  s_9d795a0c868803::t_a9e3e718c3121d 1-4,61-62
+src/domain/catalog.ts
+  s_9d795a0c868803::t_594431b9c8f62d 1-119
+  s_9d795a0c868803::t_03fd592db06003 120-121
+src/domain/status.ts
+  s_9d795a0c868803::t_594431b9c8f62d 1-13
+  s_9d795a0c868803::t_fe0e5a8711ccf9 14
+src/route.ts
+  s_9d795a0c868803::t_594431b9c8f62d 1-13
+  s_9d795a0c868803::t_492534ec75777f 14
+src/styles.css
+  s_9d795a0c868803::t_594431b9c8f62d 1-1010
+vite.config.ts
+  s_9d795a0c868803::t_594431b9c8f62d 1-7
+  s_9d795a0c868803::t_94f5b87c63b941 8
+src/App.tsx
+  s_9d795a0c868803::t_594431b9c8f62d 1-496
+  s_9d795a0c868803::t_c19213482c490b 497
+package.json
+  s_9d795a0c868803::t_e02875f3efc91f 1-5,9-13,29-30
+  s_9d795a0c868803::t_f472abb4783646 6-8,14-28
+src/data/load.ts
+  s_9d795a0c868803::t_594431b9c8f62d 1-14
+  s_9d795a0c868803::t_a58023e2ecb14a 15-19
+src/RunbookMarkdown.tsx
+  s_9d795a0c868803::t_594431b9c8f62d 1-20
+  s_9d795a0c868803::t_3922bfac752284 21
+index.html
+  s_9d795a0c868803::t_594431b9c8f62d 7-14
+  s_9d795a0c868803::t_010d640da0d941 1-6,15-21
+src/components.tsx
+  s_9d795a0c868803::t_594431b9c8f62d 1-60
+  s_9d795a0c868803::t_afc5b5d5821ea2 61
+.gitignore
+  s_e9e7e543becaea::t_8fa5fb1c52cebc 1-20
+LICENSE
+  s_78750663b4bbd9::t_9be02f4d181ef6 1-21
+README.md
+  s_78750663b4bbd9::t_9da1d142ea8715 1-98
+WORKSHOP.md
+  s_78750663b4bbd9::t_cd97a3416942bb 1-159
+data/runbooks/api-gateway.md
+  s_78750663b4bbd9::t_4350554bac4d03 1-24
+data/runbooks/docs-site.md
+  s_78750663b4bbd9::t_0967c0a25fe3dd 1-21
+data/runbooks/eval-runner.md
+  s_78750663b4bbd9::t_53b7606925a823 1-21
+data/runbooks/event-worker.md
+  s_78750663b4bbd9::t_fb624b329b1424 1-21
+data/runbooks/inference-api.md
+  s_78750663b4bbd9::t_94b3e97a7f783c 1-20
+data/runbooks/model-gateway.md
+  s_78750663b4bbd9::t_e24901b40271e1 1-28
+data/runbooks/prompt-registry.md
+  s_78750663b4bbd9::t_98f305d9dd84b3 1-22
+package-lock.json
+  s_9d795a0c868803::t_429ebcdde35b33 1-3052
+.nvmrc
+  s_9d795a0c868803::t_bd6c88aa77f8c6 1
+data/catalog.json
+  s_9d795a0c868803::t_7f32c4246e7bc4 1-79
+tsconfig.json
+  s_9d795a0c868803::t_6a59f51c78ed75 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f4c5db9d9c0a1a86c40323c7a812ef7e650a269a",
+  "prompts": {},
+  "sessions": {
+    "s_4542b8385439fd": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "04ca2080-9f5f-4eca-b32b-9143c6453235",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    },
+    "s_78750663b4bbd9": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "bb54cb7d-b9b3-46cd-a778-b2df87dcb116",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    },
+    "s_9d795a0c868803": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "696d8044-d8f2-4316-b301-ae1afff2a389",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    },
+    "s_e9e7e543becaea": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "b22a7dfb-44e3-4f10-a8cf-63094e2e4239",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    }
+  }
+}
