@@ -1,0 +1,37 @@
+AGENTS.md
+  s_9d795a0c868803::t_bd0c2408a8c78d 1-39
+src/RunbookMarkdown.test.tsx
+  s_9d795a0c868803::t_1ef1fc4b02fbee 6-33
+  s_9d795a0c868803::t_ed4532bcc26397 1-5,34-35
+package.json
+  s_9d795a0c868803::t_e3e5807de6b939 31
+  s_9d795a0c868803::t_3ca19048ca35c3 13-15
+  s_9d795a0c868803::t_1ef1fc4b02fbee 30
+src/domain/catalog.test.ts
+  s_9d795a0c868803::t_1ef1fc4b02fbee 8-181,183
+  s_9d795a0c868803::t_ee03b24d010007 1-7,182,184
+package-lock.json
+  s_9d795a0c868803::t_97444ef415ee24 23-24,1178-1184,1230-1240,1250-1256,1358-1480,1569-1578,1701-1707,1770-1789,2013-2022,2653-2666,2692-2698,2911-2917,2938-2951,2984-3000,3018-3027,3290-3396
+README.md
+  s_9d795a0c868803::t_7c305f7017ad8c 55-65,94-97
+tsconfig.json
+  s_9d795a0c868803::t_c164b6fc0d2645 19
+vitest.config.ts
+  s_9d795a0c868803::t_ceb6eced3992f6 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d5293773c3b2b1c3b591e94b664667403aa6a0ed",
+  "prompts": {},
+  "sessions": {
+    "s_9d795a0c868803": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "696d8044-d8f2-4316-b301-ae1afff2a389",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    }
+  }
+}
