@@ -8,6 +8,10 @@
 - `npm test` runs unit tests once. `npm run typecheck` checks TypeScript.
 - `npm run check` runs typecheck, unit tests, and a production build.
 - Run checks after code changes. Report failures and skipped checks accurately.
+- `npm run catalog:report` prints the deterministic local report. Optional
+  `--output .workshop-output/report.json --markdown .workshop-output/report.md`
+  flags write ignored report files. Never write reports over source files.
+- Share Attention rules between the UI and CLI in `src/domain/attention.ts`.
 
 ## Boundaries
 

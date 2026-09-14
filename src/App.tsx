@@ -8,12 +8,15 @@ import {
   FolderGit2,
   Search,
   Terminal,
+  TriangleAlert,
 } from "lucide-react";
 import { RunbookMarkdown } from "./RunbookMarkdown";
 import type { Dataset, Service } from "./domain/catalog";
 import { filterServices, getSnapshot } from "./domain/catalog";
 import { CiBadge, EmptyState, ServiceIcon, ServiceLink } from "./components";
 import { useRoute } from "./route";
+import { AttentionPage } from "./AttentionPage";
+import { evaluateAttention } from "./domain/attention";
 
 export function App({ dataset }: { dataset: Dataset }) {
   const route = useRoute();
@@ -27,7 +30,9 @@ export function App({ dataset }: { dataset: Dataset }) {
       ? "Runbooks"
       : route === "/source"
         ? "Repository data"
-        : "Service catalog";
+        : route === "/attention"
+          ? "Attention"
+          : "Service catalog";
   return (
     <div className="app-shell">
       <a
@@ -66,6 +71,17 @@ export function App({ dataset }: { dataset: Dataset }) {
             <FolderGit2 size={17} />
             Service catalog
             <span className="nav-count">{dataset.catalog.services.length}</span>
+          </a>
+          <a
+            className={route === "/attention" ? "active" : ""}
+            href="#/attention"
+            aria-current={route === "/attention" ? "page" : undefined}
+          >
+            <TriangleAlert size={17} />
+            Attention
+            <span className="nav-count">
+              {evaluateAttention(dataset).attentionServiceCount}
+            </span>
           </a>
           <a
             className={route === "/runbooks" ? "active" : ""}
@@ -117,6 +133,8 @@ export function App({ dataset }: { dataset: Dataset }) {
         <main id="main-content" tabIndex={-1}>
           {route === "/" ? (
             <CatalogPage dataset={dataset} />
+          ) : route === "/attention" ? (
+            <AttentionPage dataset={dataset} />
           ) : service ? (
             <ServicePage service={service} dataset={dataset} />
           ) : route === "/runbooks" ? (

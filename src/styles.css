@@ -1008,3 +1008,99 @@ main {
     scroll-behavior: auto !important;
   }
 }
+
+.attention-list {
+  border-top: 1px solid var(--line);
+}
+.attention-row {
+  display: flex;
+  gap: 22px;
+  padding: 26px 5px;
+  border-bottom: 1px solid var(--line);
+}
+.finding-number {
+  color: #91775f;
+  font: 11px var(--mono);
+  padding-top: 4px;
+}
+.finding-body {
+  flex: 1;
+  min-width: 0;
+}
+.finding-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.finding-heading a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #e5d5c6;
+}
+.finding-heading a:hover {
+  color: var(--orange);
+}
+.finding-heading h2 {
+  font-size: 15px;
+}
+.finding-owner {
+  font-size: 11px;
+  color: #ac937d;
+}
+.finding-reasons {
+  display: grid;
+  gap: 17px;
+  margin-top: 18px;
+}
+.finding-reasons .badge {
+  font-size: 10px;
+}
+.finding-reasons p {
+  font-size: 12px;
+  color: #a99684;
+  margin-top: 7px;
+  line-height: 1.7;
+}
+.report-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 26px 0;
+  margin-top: 12px;
+  color: #ba9e85;
+}
+.report-note > div {
+  flex: 1;
+}
+.report-note h2 {
+  font-size: 12px;
+  color: #d4bda6;
+  margin-bottom: 8px;
+}
+.report-note p {
+  font-size: 11px;
+  line-height: 1.8;
+  max-width: 630px;
+  color: #a38b75;
+}
+.report-note .text-link {
+  padding-top: 3px;
+}
+@media (max-width: 650px) {
+  .attention-row {
+    gap: 14px;
+  }
+  .finding-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .report-note {
+    flex-wrap: wrap;
+  }
+  .report-note .text-link {
+    margin-left: 34px;
+  }
+}

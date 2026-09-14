@@ -53,7 +53,7 @@ npm run preview
 
 `preview` serves the production build on http://127.0.0.1:4173.
 
-This is the **readiness checkpoint**. It adds:
+This is the **Attention feature checkpoint**. It includes:
 
 ```sh
 npm test
@@ -62,7 +62,25 @@ npm run check
 
 `check` runs type checking, unit tests, and a production build. It is not a
 browser test. The starter has no test/check scripts; this checkpoint does.
-Attention and `catalog:report` are still the next exercise.
+
+Open Attention in the sidebar. It evaluates four explicit rules over the
+snapshot: failed CI, unconfigured CI, missing owner, and missing runbook.
+The sample has **4 services needing attention and 5 reasons**. Billing Worker
+has two reasons. Running CI is not failing CI.
+
+Run the same evaluator without the browser:
+
+```sh
+npm run catalog:report
+npm run catalog:report -- --output .workshop-output/catalog-report.json --markdown .workshop-output/catalog-report.md
+```
+
+Without flags, the command prints JSON. With flags, it also writes the requested
+report files. Targets must be direct files in `.workshop-output/`, with `.json`
+or `.md` extensions respectively; symlinked outputs are rejected. No source
+files change. Reports contain the dataset timestamp, not the current time.
+Exit 0 means the audit completed, even when it finds gaps. Invalid arguments
+or data produce exit 1. The rules live in `src/domain/attention.ts`.
 
 ## Where the data lives
 

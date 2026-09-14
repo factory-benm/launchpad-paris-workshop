@@ -12,7 +12,8 @@
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "check": "npm run typecheck && npm test && npm run build"
+    "check": "npm run typecheck && npm test && npm run build",
+    "catalog:report": "tsx scripts/catalog-report.ts"
   },
   "dependencies": {
     "lucide-react": "1.46.0",
@@ -26,6 +27,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "5.2.0",
+    "tsx": "4.23.13",
     "typescript": "5.9.3",
     "vite": "7.3.6",
     "vitest": "4.1.11"
