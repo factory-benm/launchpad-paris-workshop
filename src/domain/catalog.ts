@@ -114,7 +114,8 @@ export function filterServices(
       (filters.owner === "all" ||
         (filters.owner === "unassigned"
           ? service.owner === null
-          : service.owner === filters.owner)) &&
+          : filters.owner.startsWith("team:") &&
+            service.owner === filters.owner.slice("team:".length))) &&
       (filters.type === "all" || service.type === filters.type)
     );
   });

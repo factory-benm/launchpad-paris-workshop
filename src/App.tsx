@@ -289,7 +289,9 @@ function CatalogPage({ dataset }: { dataset: Dataset }) {
           >
             <option value="all">All owners</option>
             {owners.map((item) => (
-              <option key={item}>{item}</option>
+              <option key={item} value={`team:${item}`}>
+                {item}
+              </option>
             ))}
             <option value="unassigned">Unassigned</option>
           </select>

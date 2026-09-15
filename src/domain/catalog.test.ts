@@ -157,7 +157,7 @@ describe("catalog search", () => {
   it("combines owner, type, and query", () => {
     expect(
       filterServices(dataset.catalog.services, {
-        owner: "AI Platform",
+        owner: "team:AI Platform",
         type: "api",
         query: "model",
       }).map((item) => item.id),
@@ -170,6 +170,36 @@ describe("catalog search", () => {
         owner: "unassigned",
       }).map((item) => item.id),
     ).toEqual(["event-worker"]);
+  });
+  it("distinguishes owner names from filter controls", () => {
+    const services = [
+      { ...first(dataset.catalog.services), id: "owned-all", owner: "all" },
+      {
+        ...first(dataset.catalog.services),
+        id: "owned-unassigned",
+        owner: "unassigned",
+      },
+      {
+        ...first(dataset.catalog.services),
+        id: "actually-unassigned",
+        owner: null,
+      },
+    ];
+    expect(
+      filterServices(services, { ...filters, owner: "team:all" }).map(
+        (item) => item.id,
+      ),
+    ).toEqual(["owned-all"]);
+    expect(
+      filterServices(services, { ...filters, owner: "team:unassigned" }).map(
+        (item) => item.id,
+      ),
+    ).toEqual(["owned-unassigned"]);
+    expect(
+      filterServices(services, { ...filters, owner: "unassigned" }).map(
+        (item) => item.id,
+      ),
+    ).toEqual(["actually-unassigned"]);
   });
   it("returns an empty list without mutating source data", () => {
     const before = JSON.stringify(dataset.catalog.services);

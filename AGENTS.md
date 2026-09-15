@@ -12,6 +12,9 @@
   `--output .workshop-output/report.json --markdown .workshop-output/report.md`
   flags write ignored report files. Never write reports over source files.
 - Share Attention rules between the UI and CLI in `src/domain/attention.ts`.
+- `npm run test:e2e` separately builds and tests the app in Chromium using a
+  loopback preview on port 4174. Prepare Chromium with `npx playwright install chromium`.
+- `check` does not run browser tests; run both commands when changing UI behavior.
 
 ## Boundaries
 
@@ -32,7 +35,8 @@ unless the task explicitly asks for them.
 
 The starter's `never` => Passing badge is a publicly disclosed exercise.
 Preserve it during readiness and Attention changes. Fix it only in the
-status-fix exercise, with a failing-then-passing regression test.
+status-fix exercise, with a failing-then-passing regression test. The complete
+reference has this fix; do not reintroduce the defect here.
 
 ## Git and privacy
 

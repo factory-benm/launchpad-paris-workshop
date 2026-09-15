@@ -44,7 +44,7 @@ async function assertOrdinaryPath(path: string, directory: boolean) {
     const stat = await lstat(path);
     if (
       stat.isSymbolicLink() ||
-      (directory ? !stat.isDirectory() : !stat.isFile())
+      (directory ? !stat.isDirectory() : !stat.isFile() || stat.nlink !== 1)
     ) {
       throw new Error(`Refusing non-ordinary output path: ${path}`);
     }
@@ -92,13 +92,15 @@ export async function runReport(root: string, args: string[]) {
     for (const target of targets) {
       const file = await open(
         target.path,
-        constants.O_WRONLY |
-          constants.O_CREAT |
-          constants.O_TRUNC |
-          constants.O_NOFOLLOW,
+        constants.O_WRONLY | constants.O_CREAT | constants.O_NOFOLLOW,
         0o600,
       );
       try {
+        const stat = await file.stat();
+        if (!stat.isFile() || stat.nlink !== 1) {
+          throw new Error(`Refusing non-ordinary output path: ${target.path}`);
+        }
+        await file.truncate(0);
         await file.writeFile(target.content, "utf8");
       } finally {
         await file.close();

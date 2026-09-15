@@ -2,6 +2,7 @@ import { afterEach, expect, it } from "vitest";
 import {
   mkdtemp,
   mkdir,
+  link,
   readFile,
   readdir,
   rm,
@@ -119,6 +120,18 @@ it("refuses a symlinked output file", async () => {
   const target = join(root, "data/catalog.json");
   const before = await readFile(target, "utf8");
   await symlink(target, join(root, ".workshop-output/report.json"));
+  await expect(
+    runReport(root, ["--output", ".workshop-output/report.json"]),
+  ).rejects.toThrow("non-ordinary");
+  expect(await readFile(target, "utf8")).toBe(before);
+});
+
+it("refuses a hard-linked output without truncating source data", async () => {
+  const { root } = await fixture();
+  await mkdir(join(root, ".workshop-output"));
+  const target = join(root, "data/catalog.json");
+  const before = await readFile(target, "utf8");
+  await link(target, join(root, ".workshop-output/report.json"));
   await expect(
     runReport(root, ["--output", ".workshop-output/report.json"]),
   ).rejects.toThrow("non-ordinary");

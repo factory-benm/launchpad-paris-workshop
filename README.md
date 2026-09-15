@@ -53,7 +53,7 @@ npm run preview
 
 `preview` serves the production build on http://127.0.0.1:4173.
 
-This is the **Attention feature checkpoint**. It includes:
+This is the **complete reference checkpoint**. It includes:
 
 ```sh
 npm test
@@ -77,10 +77,23 @@ npm run catalog:report -- --output .workshop-output/catalog-report.json --markdo
 
 Without flags, the command prints JSON. With flags, it also writes the requested
 report files. Targets must be direct files in `.workshop-output/`, with `.json`
-or `.md` extensions respectively; symlinked outputs are rejected. No source
+or `.md` extensions respectively; symlinked and hard-linked outputs are rejected. No source
 files change. Reports contain the dataset timestamp, not the current time.
 Exit 0 means the audit completed, even when it finds gaps. Invalid arguments
 or data produce exit 1. The rules live in `src/domain/attention.ts`.
+
+Run the browser smoke suite separately:
+
+```sh
+npx playwright install chromium
+npm run test:e2e
+```
+
+Install the browser during preparation, not during the live build-along. The
+suite builds the app and starts its own loopback preview at port **4174**.
+Keep that port free. It tests desktop and mobile flows, status labels, local
+data rendering, and absence of external requests. Reports go into ignored
+`playwright-report/` and `test-results/` directories.
 
 ## Where the data lives
 
@@ -105,14 +118,15 @@ All dates come from the files; the app does not age records using your clock.
 
 ## Known starter defect
 
-Docs Site has `state: "never"` but its badge says **Passing**. This is a disclosed
-exercise, not a hidden demo trick. The raw source and runbook tell the truth.
-The complete checkpoint fixes it to **Not configured** with a regression test.
+In the starter, Docs Site has `state: "never"` but its badge says **Passing**.
+This is a disclosed exercise, not a hidden demo trick. This complete checkpoint
+fixes it to **Not configured**, using an exhaustive mapping and a regression
+test. Docs Site still appears in Attention because its workflow is still absent.
 
 The starter's modest readiness gaps include missing repository instructions,
 unit tests, and a single validation command. This checkpoint adds those
-foundations without changing product behavior. No particular Agent Readiness
-score is claimed or guaranteed.
+foundations, the Attention feature, and the presentation fix. No particular
+Agent Readiness score is claimed or guaranteed.
 
 ## Out of scope
 

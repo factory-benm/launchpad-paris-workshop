@@ -5,10 +5,13 @@ export type StatusPresentation = {
   tone: "success" | "danger" | "pending" | "neutral";
 };
 
+const presentation: Record<Snapshot["state"], StatusPresentation> = {
+  passed: { label: "Passing", tone: "success" },
+  failed: { label: "Failing", tone: "danger" },
+  running: { label: "In progress", tone: "pending" },
+  never: { label: "Not configured", tone: "neutral" },
+};
+
 export function presentStatus(state: Snapshot["state"]): StatusPresentation {
-  if (state === "failed") return { label: "Failing", tone: "danger" };
-  if (state === "running") return { label: "In progress", tone: "pending" };
-  // Disclosed workshop defect: an unconfigured workflow falls through to Passing.
-  // See WORKSHOP.md. The complete checkpoint replaces this with exhaustive mapping.
-  return { label: "Passing", tone: "success" };
+  return presentation[state];
 }
