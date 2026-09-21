@@ -1,0 +1,47 @@
+PARTICIPANT_CHECKLIST.md
+  s_186054c8b5d4c4::t_99f89d59fd4568 13,32-35
+  s_12802e86ca817f::t_7333ffb3d3905f 3-10,21,59-60,66-67,71,74-79,85,88-118
+  s_186054c8b5d4c4::t_0add1e27916c81 119
+  s_12802e86ca817f::t_bf8e3994ce8dff 2,11-12,14,16-19,22-24,26-30,36-48,50-58,62-65,68,70,72,80-84,86-87
+  s_fca5c0bf41c5cf::t_1afdd8ce793c03 1,15,20,25,31,49,61,69,73
+docs/assets/workshop-access-qr.svg
+  s_12802e86ca817f::t_1f58f37e1751a4 1
+docs/assets/workshop-repository-qr.svg
+  s_186054c8b5d4c4::t_8a0900ced21520 1
+docs/assets/factory-lockup-black.svg
+  s_12802e86ca817f::t_59b771c8e02ee8 1-10
+README.md
+  s_fca5c0bf41c5cf::t_9c0650b3d57616 13,15-36,39-49,51-78,82-83,157-227
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "3aaa485fadd2202a6f90dfd0436ba94337bd26a3",
+  "prompts": {},
+  "sessions": {
+    "s_12802e86ca817f": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "2f4407b5-af95-4dfe-a226-3f378c331231",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    },
+    "s_186054c8b5d4c4": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "e5983e2f-6cc9-4bd2-8ae3-eaf11af46af5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    },
+    "s_fca5c0bf41c5cf": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "dc0e15d1-946c-4f3f-9c94-1439d8010f2e",
+        "model": "auto"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    }
+  }
+}
