@@ -12,6 +12,10 @@ GitHub Actions runs or uptime.
 
 ## Workshop setup
 
+**Attending the workshop? Open [PARTICIPANT_CHECKLIST.md](PARTICIPANT_CHECKLIST.md)
+and follow it top to bottom.** It contains every command and every prompt in
+order. The steps below are the same setup in more detail.
+
 You need Git, Node **22.22.3**, npm **10.9.8**, and a Factory workshop
 invitation. If any prerequisite is missing, use the
 [installation appendix](#appendix-install-prerequisites) below.
@@ -55,27 +59,11 @@ npm run build
 If `launchpad-workshop` already exists, choose a different folder name in both
 the `git clone` and `cd` commands.
 
-### 5. Start Droid and run the readiness report
+### 5. Run the app
 
-From the `launchpad-workshop` folder, start Droid:
-
-```sh
-droid
-```
-
-Complete the browser sign-in with the email invited to the workshop. Then type
-this command **inside Droid**, not in the normal shell:
-
-```text
-/readiness-report
-```
-
-### 6. Run the app
-
-Open a second terminal tab, return to the workshop folder, and run:
+From the `launchpad-workshop` folder:
 
 ```sh
-cd launchpad-workshop
 npm run dev
 ```
 
@@ -83,6 +71,27 @@ Leave that command running and open **http://127.0.0.1:5173**. You should see
 eight sample services. The server binds to loopback only.
 If port 5173 is occupied, stop the process you started there or explicitly choose
 another port with `npm run dev -- --port 5174`.
+
+### 6. Start Droid and run the readiness report
+
+Open a second terminal tab, return to the workshop folder, and start Droid:
+
+```sh
+cd launchpad-workshop
+droid
+```
+
+Complete the browser sign-in with the email invited to the workshop. Press
+`Ctrl+L` until the autonomy indicator shows **Medium**. Then type this command
+**inside Droid**, not in the normal shell:
+
+```text
+/readiness-report
+```
+
+It takes several minutes. Start it before the session begins. All participant
+clones share the same `origin` URL, so readiness reports for this repository
+are pooled in Factory; at the starter commit they are near-identical.
 
 No `.env`, account, API key, database, or external integration is needed by the
 app. Initial dependency installation, GitHub access, and Factory sessions still
@@ -101,7 +110,12 @@ Reference branches and tags let you inspect the finished stages:
 | `workshop-feature` | `reference/attention` | Attention view and deterministic catalog report. |
 | `workshop-complete` | `reference/complete` | Status fix and browser smoke tests. |
 
-Use [WORKSHOP.md](WORKSHOP.md) for the build-along prompts and safe catch-up steps.
+During the session participants build the first three stages: project
+instructions, tests, the Attention page, and the badge fix. The report CLI,
+scheduled automation, and Slack delegation are presenter demonstrations.
+
+Use [PARTICIPANT_CHECKLIST.md](PARTICIPANT_CHECKLIST.md) during the session and
+[WORKSHOP.md](WORKSHOP.md) for the full prompts and safe catch-up steps.
 Presenter notes are intentionally excluded from every public checkpoint.
 
 ## Commands at this checkpoint

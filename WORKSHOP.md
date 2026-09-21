@@ -4,6 +4,10 @@ The 50-minute workshop starts from `workshop-starter`. Keep your changes on your
 own local branch. Public reference checkpoints are there to inspect or catch up,
 not to imply your live run produced identical code.
 
+During the session, follow [PARTICIPANT_CHECKLIST.md](PARTICIPANT_CHECKLIST.md).
+This file is the longer reference: the same prompts with more context, plus the
+presenter-only steps (§5–§7) you can try on your own afterwards.
+
 ## Before the session
 
 1. Clone this repository and use the `workshop-starter` tag.
@@ -11,8 +15,8 @@ not to imply your live run produced identical code.
 3. Use Node 22.22.3 and npm 10.9.8.
 4. Run `npm ci`, `npm run typecheck`, `npm run build`, and `npm run dev`.
 5. Confirm http://127.0.0.1:5173 loads eight services.
-6. Confirm you can start a Factory session in this repo. A Git `origin` remote
-   is needed for `/readiness-report`.
+6. Start Droid in the repo, set autonomy to Medium (`Ctrl+L`), and run
+   `/readiness-report`. It takes several minutes; start it before the session.
 
 The catalog data is fictional. It lives entirely in committed JSON and Markdown.
 No application credentials are required. Every participant at the same commit
@@ -27,61 +31,110 @@ In a Factory session, run:
 ```
 
 Inspect the evidence and choose a small improvement, not a score to chase.
-The command's evaluation can take longer than the live slot. An actual saved
-report is a useful fallback when clearly labeled as a rehearsal result.
 
-## 2. Improve instructions and validation
+The command needs a Git `origin` remote and stores the report against that
+remote's URL. Every participant clone shares the same `origin`, so readiness
+reports for this repository are pooled in the Factory dashboard and
+`/readiness-fix` picks up the most recent one. At the starter commit all
+reports are near-identical, so this is fine for the exercise. Do not fork
+just to avoid it.
+
+## 2. Add project instructions
 
 ```text
-/readiness-fix focus only on project instructions and local validation.
-Create a concise AGENTS.md with commands you verify. Add Vitest unit tests for
-schema validation and catalog filtering. Add npm test and npm run check;
-check must run type checking, unit tests, and a production build.
-Preserve application behavior, the committed dataset, and the disclosed
-Docs Site badge defect. Do not implement Attention or catalog:report yet.
-Do not modify remote settings, add services, or push changes. Run the checks.
+Inspect this repository and create a concise root-level AGENTS.md for future
+coding agents. Derive instructions from the existing code, README, package
+scripts, and conventions. Include: project purpose and architecture; setup,
+build, typecheck, and dev commands; code and naming conventions; validation
+required before finishing changes; files or generated artifacts agents should
+not edit; repository-specific safety rules (no pushes, do not edit data/
+fixtures, do not fix the disclosed Docs Site badge yet). Keep it practical
+and avoid generic advice. Do not invent commands or conventions. After
+writing it, run every documented command that is safe to run and report
+the results.
 ```
 
-If `/readiness-fix` is not available, give those instructions as a normal task,
-using the actual readiness findings as context.
+Read the result. Adding `AGENTS.md` alone is not proof that an agent can work
+reliably; the value is in commands that were actually verified and constraints
+that match how the repository really works.
 
-Verify the commands, inspect the diff, and record which gaps changed. Adding
-`AGENTS.md` alone is not proof that an agent can work reliably.
-
-## 3. Build the Attention view
-
-Use Spec mode with this task, then approve a small plan:
+## 3. Fix one readiness gap: testing
 
 ```text
-Add an Attention page to Launchpad and a deterministic catalog-report CLI.
-Use the existing validated, committed dataset. No APIs, database, or new data.
+/readiness-fix Testing only. Add Vitest, unit tests for schema validation and
+catalog filtering in src/domain, an npm test script, and an npm run check
+script that runs typecheck, tests, and build. Do not change application
+behavior, the data/ fixtures, or the Docs Site badge. Do not add features.
+Run npm run check when done.
+```
 
-One service row can contain multiple reasons. Rules in priority order:
-1. ci_failed: raw CI state failed, high severity.
-2. ci_not_configured: raw CI state never, medium severity.
-3. owner_missing: owner is null, medium severity.
-4. runbook_missing: runbook is null, medium severity.
-Passed and running are not failing. Missing snapshot records are validation
-errors, not implicit passes. Sort services by their highest-priority reason,
-then by service id. Order reasons by the same rule priority.
+`/readiness-fix` fetches the latest stored report for the repository and works
+through the failing criteria matching your instructions. If it reports no
+stored report, run `/readiness-report` first and wait for it to finish. If the
+command is unavailable, paste the text after `/readiness-fix` as a normal task.
 
-Share the evaluator between the UI and CLI. Show distinct service count
-separately from reason count. Include service links and an empty state.
-Do not change the existing CI badge presentation function in this exercise.
+Then run `npm run check` yourself in a shell and inspect the diff.
 
-Provide:
+## 4. Build the Attention view
+
+Use Spec mode (`Shift+Tab`) with this task, then approve a small plan:
+
+```text
+Add an Attention page to Launchpad using only the existing validated dataset.
+List each service that needs attention with its reasons. Rules in priority
+order: ci_failed (raw CI state failed, high), ci_not_configured (raw CI state
+never, medium), owner_missing (owner is null, medium), runbook_missing
+(runbook is null, medium). A service can have several reasons. Passed and
+running are not failures. Sort services by their highest-priority reason,
+then by id. Show the count of services separately from the count of reasons,
+link each row to the service page, include an empty state, and show the
+dataset asOf timestamp, not the current time. Put the rule evaluator in
+src/domain with unit tests. Do not change the existing CI badge presentation
+function or any data. Expected result on this dataset: 4 services, 5 reasons,
+in order billing-worker, model-gateway, docs-site, event-worker.
+Run npm run check when done.
+```
+
+These are two failures and three medium-priority gaps, not five failing systems.
+The snapshot date stays fixed at `2026-09-01T09:00:00Z`.
+
+## 5. Fix the disclosed status bug
+
+```text
+Docs Site has state "never" in data/ci-snapshots.json but shows Passing in
+the catalog and service page. Reproduce it and add a failing regression test
+first. Then fix the label to "Not configured" and cover all four supported
+states (passed, failed, running, never). Do not change the source data or the
+Attention rules. Docs Site should still appear in Attention after the fix
+because its workflow is still unconfigured. Run npm run check and show the
+diff plus the failing-then-passing test evidence.
+```
+
+The fixture and the starter disclose this defect in advance. Don't present it
+as an unexpected production incident.
+
+---
+
+The remaining sections are presenter demonstrations. They need the presenter's
+own setup (a prepared checkout, a Factory automation, or a connected Slack
+workspace) and are not follow-along steps. Try them afterwards if you like.
+
+## 6. Add the catalog-report CLI (presenter demo)
+
+The Attention rules become more useful when a command produces the same answer
+outside the browser. In Spec mode:
+
+```text
+Add a deterministic catalog-report CLI that reuses the Attention evaluator in
+src/domain. Provide:
 npm run catalog:report -- --output .workshop-output/catalog-report.json
   --markdown .workshop-output/catalog-report.md
-
-The command uses only local data, writes only requested reports under
+The command uses only local data, writes only the requested reports under
 .workshop-output/, and produces deterministic output. Use the dataset's asOf,
 not the wall clock. Exit 0 when an audit completes even if it finds issues;
-exit nonzero for invalid input or data. Never modify source data.
-
-Add tests. Expected results: 8 total services, 4 needing attention, 5 reasons.
-Order: billing-worker (ci_failed, runbook_missing), model-gateway (ci_failed),
-docs-site (ci_not_configured), event-worker (owner_missing).
-Run checks and show that CLI and UI use the same rules. Do not push or merge.
+exit nonzero for invalid input or data. Never modify source data. Add a parity
+test proving the CLI and the Attention page produce the same rows.
+Run npm run check when done.
 ```
 
 Run the CLI on one line:
@@ -90,30 +143,12 @@ Run the CLI on one line:
 npm run catalog:report -- --output .workshop-output/catalog-report.json --markdown .workshop-output/catalog-report.md
 ```
 
-These are two failures and three medium-priority gaps, not five failing systems.
-The snapshot date stays fixed at `2026-09-01T09:00:00Z`.
+Expected: 8 services, 4 needing attention, 5 reasons. Run it twice and compare
+the output; it should be identical.
 
-## 4. Fix the disclosed status bug
+## 7. Make the audit repeatable (presenter demo)
 
-Use this directly in Factory or, if the presenter has configured it, through
-a dedicated Slack thread:
-
-```text
-Docs Site has state "never" in data/ci-snapshots.json but shows Passing in
-the catalog and service page. Reproduce it and add a failing regression test.
-Fix the label to Not configured. Cover all four supported states.
-Do not change the source data or Attention rules. Docs Site should remain
-in Attention after the label fix, because its workflow is still unconfigured.
-Run checks and show the diff plus failing-then-passing test evidence.
-Do not push, merge, or deploy.
-```
-
-The fixture and the starter disclose this defect in advance. Don't present it
-as an unexpected production incident.
-
-## 5. Make the audit repeatable
-
-The existing `catalog:report` command is the repeatable unit. A Factory scheduled
+The `catalog:report` command is the repeatable unit. A Factory scheduled
 automation can run it in this repository and summarize the output.
 
 ```text
@@ -129,23 +164,35 @@ A local schedule needs its computer awake and available. Run the command manuall
 when scheduling is not configured, and distinguish a manual run from a scheduler
 run. Do not invent run history.
 
+The presenter may also start the §5 bug-fix task from a Slack thread instead of
+the terminal. That requires the presenter's Slack workspace to be connected to
+their Factory organization, so it is a demonstration, not a participant step.
+The same task works identically when pasted directly into Droid.
+
 ## Safe catch-up
 
-Do not reset, clean, or discard your work to catch up. Clone into a different
-folder using the clone URL of this repository:
+Do not reset, clean, or discard your work to catch up. Clone the checkpoint you
+need into a **different** folder:
 
 ```sh
-git clone --branch workshop-ready REPOSITORY_URL launchpad-ready-copy
+git clone --branch workshop-ready https://github.com/factory-benm/launchpad-paris-workshop.git launchpad-ready-copy
 cd launchpad-ready-copy
 git switch -c my-workshop
 npm ci
 npm run dev -- --port 5174
 ```
 
-`REPOSITORY_URL` is a placeholder for this repo's clone URL. Replace it before
-running the command. Choose another unused directory if that one already exists.
-Use `workshop-feature` or `workshop-complete` for later reference stages.
-The clone initially checks out a tag; creating a branch keeps your edits separate.
+Pick the tag for where you want to resume:
+
+| Tag | Resume from |
+| --- | --- |
+| `workshop-ready` | AGENTS.md and tests exist; start at §4 (Attention) |
+| `workshop-feature` | Attention and CLI exist; start at §5 (bug fix) |
+| `workshop-complete` | Everything done; inspect the finished result |
+
+Choose another unused directory if that one already exists. The clone initially
+checks out a tag; creating a branch keeps your edits separate. Your original
+folder and its Droid session stay untouched.
 
 ## What this demonstrates
 
