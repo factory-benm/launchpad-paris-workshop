@@ -1,0 +1,26 @@
+PARTICIPANT_CHECKLIST.md
+  s_4dacc0576ae31b::t_138df241e6e979 7-10,13,24-26,28,54-58,68-70,72,78-82,84-86,88-114,117-126,129-142,144-161,190-203
+WORKSHOP.md
+  s_4dacc0576ae31b::t_55ac74e04da2ff 167-171,174-175,178,185-195
+  s_4dacc0576ae31b::t_146938172c519e 7-10,18-19,35-42,45-54,57-59,61,64-69,71-74,76,78,80-95,101,105-110,116-125,127-151
+README.md
+  s_4dacc0576ae31b::t_231e364a67921f 62,64,67,70-73,75,77,81,84-94
+  s_4dacc0576ae31b::t_9d11d8ed65d793 113-118
+  s_4dacc0576ae31b::t_67c511b06b6bd1 15-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1855cb786f356211ff93025fac7428db1942cbae",
+  "prompts": {},
+  "sessions": {
+    "s_4dacc0576ae31b": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "01502daf-2f43-4ad1-87a1-c3b0ac024cf7",
+        "model": "claude-fable-5.1"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    }
+  }
+}
