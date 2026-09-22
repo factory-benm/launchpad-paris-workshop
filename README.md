@@ -39,9 +39,40 @@ The Node and npm versions should be `v22.22.3` and `10.9.8`.
 
 ### 3. Install Droid
 
+Choose one installation method:
+
+**macOS or Linux**
+
 ```sh
 curl -fsSL https://app.factory.ai/cli | sh
 ```
+
+**Homebrew (macOS)**
+
+```sh
+brew install --cask droid
+```
+
+**Windows PowerShell**
+
+```powershell
+irm https://app.factory.ai/cli/windows | iex
+```
+
+**npm (any platform with Node.js)**
+
+```sh
+npm install -g droid
+```
+
+Linux users should also install `xdg-utils` so Droid can open browser sign-in:
+
+```sh
+sudo apt-get install xdg-utils
+```
+
+See the [Droid CLI quickstart](https://docs.factory.ai/droid-cli/quickstart)
+for the latest installation guidance.
 
 ### 4. Download and check the workshop starter
 

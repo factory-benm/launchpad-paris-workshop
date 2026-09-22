@@ -2,19 +2,11 @@
 
 # Build with Droid
 
-Bring autonomy to software engineering.
-
-This is the only page you need open during the workshop. Every prompt you
-paste into Droid is on this page. Full-length versions live in
-[WORKSHOP.md](WORKSHOP.md) if you want more detail afterwards.
-
----
-
-## 01 / Before the session (15 minutes, do this today)
+## 1 / Get access to Factory
 
 Scan for workshop access:
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSfhqtCTPcGDv0DFaCGrcI9Cg2DBnnbb4VyZOtTp9pr8yrmCMA/viewform"><img src="docs/assets/workshop-access-qr.svg" alt="QR code: request Factory workshop access" width="100"></a>
+![QR code: request Factory workshop access](docs/assets/workshop-access-qr.svg)
 
 - [ ] 1\. Submit the form with the email you will use for Factory. Check your inbox
   and spam folder for the invitation. Open it, create an account or sign in, and
@@ -27,17 +19,46 @@ Scan for workshop access:
   Check with `git --version`, `node --version`, and `npm --version`.
   Missing something? Use the [README appendix](README.md#appendix-install-prerequisites).
 
-- [ ] 3\. Install Droid. Paste this into Terminal and press Enter:
+- [ ] 3\. Install Droid. Choose one method for your OS and terminal:
+
+**macOS or Linux**
 
 ```sh
 curl -fsSL https://app.factory.ai/cli | sh
 ```
 
+**Homebrew (macOS)**
+
+```sh
+brew install --cask droid
+```
+
+**Windows PowerShell**
+
+```powershell
+irm https://app.factory.ai/cli/windows | iex
+```
+
+**npm (any platform with Node.js)**
+
+```sh
+npm install -g droid
+```
+
+Linux users should also install `xdg-utils` with
+`sudo apt-get install xdg-utils`. For this workshop, Windows users should
+continue in WSL/Ubuntu after installation. See the
+[Droid CLI quickstart](https://docs.factory.ai/droid-cli/quickstart) for the
+latest guidance.
+
 - [ ] 4\. Download the starter. Run these lines in Terminal:
 
 Scan to open the workshop repository:
 
-<a href="https://github.com/factory-benm/launchpad-paris-workshop"><img src="docs/assets/workshop-repository-qr.svg" alt="QR code: open the workshop repository" width="110"></a>
+![QR code: open the workshop repository](docs/assets/workshop-repository-qr.svg)
+
+In the repository, open `PARTICIPANT_CHECKLIST.md` for full instructions on what
+to do in the workshop.
 
 ```sh
 git clone --branch workshop-starter https://github.com/factory-benm/launchpad-paris-workshop.git launchpad-workshop
@@ -83,7 +104,7 @@ are pooled in Factory. At the starter commit they are all near-identical.
 
 You are ready. Keep both Terminal tabs and the browser tab open.
 
-## 02 / Build along (during the session)
+## 2 / Build along (during the session)
 
 Rules for every step: read what Droid proposes before approving. If Droid asks
 you a question, answer it or reply `use your best judgment`. After each step,
@@ -144,21 +165,7 @@ Docs Site has state "never" in data/ci-snapshots.json but shows Passing in the c
 **Done when:** the badge reads **Not configured**, `npm run check` passes,
 and Docs Site is still on the Attention page.
 
-## 03 / Watch the presenter (no action needed)
-
-These use the presenter's own setup and are not follow-along steps:
-
-- The `catalog:report` CLI that shares the Attention rules and writes a
-  deterministic JSON and Markdown report.
-- A Factory scheduled automation that runs that CLI and summarizes the result.
-- Starting a Droid session from Slack. This needs the presenter's Slack
-  workspace connected to Factory.
-
-If you want to try them yourself later, the prompts are in
-[WORKSHOP.md](WORKSHOP.md) §5–§7 and the finished code is on the
-`workshop-complete` tag.
-
-## 04 / Droid keyboard shortcuts
+## 3 / Droid keyboard shortcuts
 
 Use these inside Droid's chat input, not your normal shell. On Mac, `Ctrl`
 means Control, not Command. Check the mode and autonomy indicators after switching.
@@ -190,7 +197,7 @@ Switching modes does not change your autonomy level.
 Workshop default: **Medium**. High is not needed. Organization policy can
 limit the available levels. Keep the task scoped: no pushes, merges, or deployments.
 
-## 05 / If you get stuck
+## 5 / If you get stuck
 
 | Problem | What to do |
 | --- | --- |
