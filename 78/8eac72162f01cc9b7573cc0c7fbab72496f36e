@@ -1,0 +1,32 @@
+README.md
+  s_2d9c16db6f56b0::t_563a059f831e7a 42-45,50-75
+  s_2d9c16db6f56b0::t_2e2ad9ab1be5e9 76
+PARTICIPANT_CHECKLIST.md
+  s_994f9527e51df8::t_2bbea322b267d8 60-61
+  s_994f9527e51df8::t_3183981e2c6e4c 58-59
+  s_2d9c16db6f56b0::t_21b6828b67c398 5,9,22-24,30-53,107,168,200
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "788eac72162f01cc9b7573cc0c7fbab72496f36e",
+  "prompts": {},
+  "sessions": {
+    "s_2d9c16db6f56b0": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "82d18482-9a1f-414b-a218-636657bda695",
+        "model": "gpt-5.6-sol-fast"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    },
+    "s_994f9527e51df8": {
+      "agent_id": {
+        "tool": "droid",
+        "id": "1dc5f7ef-a16f-42bf-83cc-0b06d6899bfe",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Ben Miller <benmiller169@gmail.com>"
+    }
+  }
+}
